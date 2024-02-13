@@ -233,7 +233,7 @@ export default function Home() {
                             src={publication.__typename === 'Post' ? publication.metadata?.asset?.image?.optimized.uri : ''}
                           />
                           <ReactMarkdown className="
-                          mt-4 break-words
+                          mt-4 break-all
                           ">
                             {publication.metadata.content.replace(/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig, '[LINK]($1)')}
                           </ReactMarkdown>
@@ -284,9 +284,7 @@ export default function Home() {
           {
             view === 'music' && (
               <div className="flex flex-1 flex-wrap flex-col">
-                <p className='p-4'>Filter by music by passing in the `publicationTypes`
-
-                </p>
+                <p className='p-4'>Filter by music by passing in the `publicationTypes`</p>
               </div>
             )
           }

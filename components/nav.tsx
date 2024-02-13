@@ -87,17 +87,19 @@ export function Nav() {
         </Link>
         {
           embedded && (
-            <p className='text-xs text-muted-foreground'>{embedded.address}</p>
+            <p className='
+            hidden sm:block
+            text-xs text-muted-foreground'>{embedded.address}</p>
           )
         }
-        {/* {
-          address && (
-            <Link href="/profile" className={`mr-5 text-sm ${pathname !== '/search' && 'opacity-60'}`}>
-              <p>Profile</p>
-            </Link>
-          )
-        } */}
       </div>
+      {
+        embedded && (
+          <p className='
+          sm:hidden pl-8 pt-2 pb-4
+          text-xs text-muted-foreground'>{embedded.address}</p>
+        )
+      }
       <div className='
         flex
         sm:items-center
