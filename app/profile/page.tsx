@@ -49,6 +49,7 @@ function Profile({ profile, address }) {
               <p className='text-muted-foreground font-medium'>
                 {profile?.handle?.localName}.{profile?.handle?.namespace}
               </p>
+              <p className='mt-2 text-sm text-muted-foreground'>{address}</p>
             </div>
           </div>
         </a>
