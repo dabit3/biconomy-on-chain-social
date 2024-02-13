@@ -8,6 +8,7 @@ export const Context = createContext<any>(null)
 
 export function ContextProvider({ children }) {
   const [client, setClient] = useState<any>(null)
+  const [wallet, setWallet] = useState<any>(null)
 
   useEffect(() => {
     _setClient()
@@ -23,7 +24,9 @@ export function ContextProvider({ children }) {
   return (
     <Context.Provider value={{
         client,
-        setClient
+        setClient,
+        wallet,
+        setWallet
       }}>
       {children}
     </Context.Provider>

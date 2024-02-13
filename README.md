@@ -1,4 +1,4 @@
-## Biconomy X Lens On Chain Social 
+## Biconomy X Lens on-chain social 
 
 Web2 login to on-chain social with Biconmy Account Abstraction via Privy Wallet
 

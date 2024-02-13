@@ -85,6 +85,11 @@ export function Nav() {
         <Link href="/search" className={`mr-5 text-sm ${pathname !== '/search' && 'opacity-60'}`}>
           <p>Search</p>
         </Link>
+        {
+          embedded && (
+            <p className='text-xs text-muted-foreground'>{embedded.address}</p>
+          )
+        }
         {/* {
           address && (
             <Link href="/profile" className={`mr-5 text-sm ${pathname !== '/search' && 'opacity-60'}`}>
@@ -124,6 +129,7 @@ export function Nav() {
             onClick={() => {
               logout()
               setAddress(null)
+              setEmbedded(null)
             }}
             variant="secondary" className="mr-4">
               Logout
