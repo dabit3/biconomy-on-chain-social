@@ -214,16 +214,20 @@ export default function Home() {
                       space-y-3 mb-4 pt-6 pb-2
                       sm:px-6 px-2
                       ">
-                        <div className="flex">
-                          <Avatar>
-                            <AvatarImage src={publication.by?.metadata?.picture?.optimized?.uri} />
-                            <AvatarFallback>{publication.by.handle.localName.slice(0, 2)}</AvatarFallback>
-                          </Avatar>
-                          <div className="ml-4">
-                               <h3 className="mb-1 font-medium leading-none">{publication.by.handle.localName}.{publication.by.handle.namespace}</h3>
-                              <p className="text-xs text-muted-foreground">{publication.by.metadata?.displayName}</p>
+                        <a
+                        target="_blank" rel="no-opener"
+                        href={`https://hey.xyz/u/${publication.by.handle.localName}`}>
+                          <div className="flex">
+                            <Avatar>
+                              <AvatarImage src={publication.by?.metadata?.picture?.optimized?.uri} />
+                              <AvatarFallback>{publication.by.handle.localName.slice(0, 2)}</AvatarFallback>
+                            </Avatar>
+                            <div className="ml-4">
+                                <h3 className="mb-1 font-medium leading-none">{publication.by.handle.localName}.{publication.by.handle.namespace}</h3>
+                                <p className="text-xs text-muted-foreground">{publication.by.metadata?.displayName}</p>
+                            </div>
                           </div>
-                        </div>
+                        </a>
                         <div>
                           <img
                             className={cn(`

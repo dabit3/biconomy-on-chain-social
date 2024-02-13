@@ -70,7 +70,7 @@ export function Nav() {
     sm:pr-10
     '>
       <div
-        className='py-3 px-8 flex flex-1 items-center p'
+        className='py-5 px-8 flex flex-1 items-center p'
       >
         <Link href="/" className='mr-5 flex items-center'>
           <Icon
