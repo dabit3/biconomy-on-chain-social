@@ -25,6 +25,7 @@ export function Nav() {
     checkWallets()
   }, [wallets])
 
+
   async function checkWallets() {
     const embeddedWallet = wallets.find((wallet) => (wallet.walletClientType === 'privy'));
     if (!embeddedWallet) return
@@ -38,26 +39,25 @@ export function Nav() {
       signer: signer as LightSigner,
       bundlerUrl: "https://bundler.biconomy.io/api/v2/{chain-id-here}/nJPK7B3ru.dd7f7861-190d-41bd-af80-6877f74b8f44",
       biconomyPaymasterApiKey: process.env.NEXT_PUBLIC_PAYMASTER_KEY,
-    });
+    })
+    signInWithLens(embeddedWallet)
 
     const address = await smartAccount.getAccountAddress()
     setAddress(address)
   }
 
-  async function signInWithLens() {
+  async function signInWithLens(_wallet = embedded) {
     const profiles = await client.wallet.profilesManaged({
-      for: embedded.address,
+      for: _wallet.address,
       includeOwned: true
-    })
-        
+    })   
     if (profiles.items.length === 0) {
       return
     }
-
     setProfile(profiles.items[0])
 
     const challenge = await client.authentication.generateChallenge({
-      signedBy: embedded.address,
+      signedBy: _wallet.address,
       for: profiles.items[0]?.id,
     })
     const signature = await signMessage(challenge.text);

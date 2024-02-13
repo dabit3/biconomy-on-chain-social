@@ -1,20 +1,20 @@
 'use client'
-import { useState, useEffect, useContext } from 'react'
 
-import {
-  Loader2, ListMusic, Newspaper,
-  PersonStanding, Shapes,
-  MessageSquare, Repeat2, Heart, Grab, ArrowRight
-} from "lucide-react"
+import { useState, useEffect, useContext } from 'react'
 import { Button } from '@/components/ui/button'
 import { cn } from "@/lib/utils"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import ReactMarkdown from 'react-markdown'
 import { PublicationReactionType } from '@lens-protocol/client';
 import { Context } from '../app/context'
-
 import {
-  ExplorePublicationsOrderByType, LimitType, ExploreProfilesOrderByType } from "@lens-protocol/client";
+  Loader2, ListMusic, Newspaper,
+  PersonStanding, Shapes,
+  MessageSquare, Repeat2, Heart, Grab, ArrowRight
+} from "lucide-react"
+import {
+  ExplorePublicationsOrderByType, LimitType, ExploreProfilesOrderByType
+} from "@lens-protocol/client";
 
 export default function Home() {
   const [view, setView] = useState('profiles')
@@ -56,7 +56,7 @@ export default function Home() {
     setPublications(_publications.items)
     setLoadingPublications(false)
   }
-  console.log('publications:', publications)
+  console.log('profiles:', profiles)
 
   profiles = profiles?.filter(p => p.metadata?.picture?.optimized?.uri)
 
@@ -234,7 +234,7 @@ export default function Home() {
                             max-w-full sm:max-w-[500px]
                             rounded-2xl h-auto object-cover transition-all hover:scale-105
                             `)}
-                            src={publication.__typename === 'Post' ? publication.metadata?.asset?.image?.optimized.uri : ''}
+                            src={publication.__typename === 'Post' ? publication.metadata?.asset?.image?.optimized?.uri : ''}
                           />
                           <ReactMarkdown className="
                           mt-4 break-all
