@@ -75,7 +75,7 @@ export default function Home() {
     ">
       <div>
         <a target="_blank" rel="no-opener" href="https://lens.xyz">
-        <div className="cursor-pointer flex items-center bg-secondary text-foreground rounded-lg py-1 px-3 mb-2 max-w-[288px]">
+        <div className="cursor-pointer flex items-center bg-secondary text-foreground rounded-lg py-1 px-3 mb-2 max-w-[298px]">
           <p className='mr-2'>📚</p>
           <p className="text-sm">
           Learn more about Lens Protocol.
