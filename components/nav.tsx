@@ -47,10 +47,12 @@ export function Nav() {
   }
 
   async function signInWithLens(_wallet = embedded) {
+    console.log('_wallet:', _wallet)
     const profiles = await client.wallet.profilesManaged({
       for: _wallet.address,
       includeOwned: true
-    })   
+    })
+    console.log('profiles:', profiles)
     if (profiles.items.length === 0) {
       return
     }
@@ -115,7 +117,7 @@ export function Nav() {
        {
         address && !signedInWithLens && (
           <Button
-            onClick={signInWithLens}
+            onClick={() => signInWithLens()}
             variant="secondary" className="mr-4">
               Sign In With Lens
               <ChevronRight className="h-4 w-4" />

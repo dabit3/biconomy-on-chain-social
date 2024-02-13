@@ -27,11 +27,11 @@ function Profile({ profile, address }) {
   return (
     <main className="px-10 py-14">
       <div>
-        <a
+        <div className='border rounded-lg p-10'>
+          <a
           rel='no-opener'
           target='_blank'
-        href={`https://hey.xyz/u/${profile.handle?.localName}`}>
-          <div className='border rounded-lg p-10'>
+          href={`https://hey.xyz/u/${profile.handle?.localName}`}>
             <div>
               {
                 profile.metadata?.picture?.__typename === 'ImageSet' && (
@@ -42,17 +42,17 @@ function Profile({ profile, address }) {
                 )
               }
             </div>
-            <div className='mt-4'>
-              <p className='text-lg'>
-                {profile?.metadata?.displayName}
-              </p>
-              <p className='text-muted-foreground font-medium'>
-                {profile?.handle?.localName}.{profile?.handle?.namespace}
-              </p>
-              <p className='mt-2 text-sm text-muted-foreground'>{address}</p>
-            </div>
+          </a>
+          <div className='mt-4'>
+            <p className='text-lg'>
+              {profile?.metadata?.displayName}
+            </p>
+            <p className='text-muted-foreground font-medium'>
+              {profile?.handle?.localName}.{profile?.handle?.namespace}
+            </p>
+            <p className='mt-2 text-sm text-muted-foreground'>{address}</p>
           </div>
-        </a>
+        </div>
      </div>
     </main>
   )
