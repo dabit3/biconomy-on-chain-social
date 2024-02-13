@@ -30,7 +30,7 @@ function Profile({ profile, address }) {
         <a
           rel='no-opener'
           target='_blank'
-        href={`https://share.lens.xyz/u/${profile.handle?.localName}.${profile.handle?.namespace}`}>
+        href={`https://hey.xyz/u/${profile.handle?.localName}`}>
           <div className='border rounded-lg p-10'>
             <div>
               {
