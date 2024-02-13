@@ -47,12 +47,10 @@ export function Nav() {
   }
 
   async function signInWithLens(_wallet = embedded) {
-    console.log('_wallet:', _wallet)
     const profiles = await client.wallet.profilesManaged({
       for: _wallet.address,
       includeOwned: true
     })
-    console.log('profiles:', profiles)
     if (profiles.items.length === 0) {
       return
     }
