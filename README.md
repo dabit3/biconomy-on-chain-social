@@ -7,7 +7,7 @@ Web2 login to on-chain social with Biconmy Account Abstraction via Privy Wallet
 1. Clone repo
 
 ```sh
-git clone git@github.com:dabit3/biconomy-on-chain-social.git
+npx degit git@github.com:dabit3/biconomy-on-chain-social.git#main on-chain-social
 ```
 
 2. Install dependencies
