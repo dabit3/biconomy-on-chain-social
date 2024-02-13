@@ -87,7 +87,7 @@ export default function Home() {
           On-Chain Social
         </h1>
         <p className="mt-4 max-w-[750px] text-lg text-muted-foreground sm:text-xl">
-          An application boilerplate built with a modern stack. Simple to get started building your first social app. Leveraging ShadCN, Lens Protocol, Next.js, and WalletConnect.
+          An application boilerplate built with a modern stack. Simple to get started building your first social app. Leveraging Biconomy, ShadCN, Lens Protocol, Next.js, and Privy Wallet.
         </p>
       </div>
 
