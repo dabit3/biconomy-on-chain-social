@@ -19,7 +19,7 @@ export function Nav() {
   const [embedded, setEmbedded] = useState<any>(null)
   const [address, setAddress] = useState<string | null>(null)
   const [signedInWithLens, setSignedInWithLens] = useState(false)
-  const { client } = useContext(Context)
+  const { client, setWallet, setProfile } = useContext(Context)
 
   useEffect(() => {
     checkWallets()
@@ -29,6 +29,7 @@ export function Nav() {
     const embeddedWallet = wallets.find((wallet) => (wallet.walletClientType === 'privy'));
     if (!embeddedWallet) return
     await embeddedWallet.switchChain(80001)
+    setWallet(embeddedWallet)
     setEmbedded(embeddedWallet)
     const provider = await embeddedWallet.getEthersProvider();
     const signer = provider.getSigner();
@@ -52,6 +53,8 @@ export function Nav() {
     if (profiles.items.length === 0) {
       return
     }
+
+    setProfile(profiles.items[0])
 
     const challenge = await client.authentication.generateChallenge({
       signedBy: embedded.address,
@@ -87,19 +90,13 @@ export function Nav() {
         </Link>
         {
           embedded && (
-            <p className='
-            hidden sm:block
-            text-xs text-muted-foreground'>{embedded.address}</p>
+            <Link href="/profile" className={`mr-5 text-sm ${pathname !== '/profile' && 'opacity-60'}`}>
+              <p>Profile</p>
+            </Link>
           )
         }
       </div>
-      {
-        embedded && (
-          <p className='
-          sm:hidden pl-8 pt-2 pb-4
-          text-xs text-muted-foreground'>{embedded.address}</p>
-        )
-      }
+     
       <div className='
         flex
         sm:items-center
@@ -132,6 +129,8 @@ export function Nav() {
               logout()
               setAddress(null)
               setEmbedded(null)
+              setProfile(null)
+              setWallet(null)
             }}
             variant="secondary" className="mr-4">
               Logout

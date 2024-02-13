@@ -1,24 +1,28 @@
 'use client'
 
-import { useAccount } from 'wagmi'
+import { useContext } from 'react'
+import { Context } from '../context'
 
 export default function ProfileWrapper() {
-  const { address } = useAccount()
-  if (!address) return null
+  const { wallet, profile } = useContext(Context)
+
+  if (!wallet) return null
 
   return (
     <Profile
-      address={address}
+      profile={profile}
+      address={wallet.address}
     />
   )
 }
 
-function Profile({ address }) {
-  const data:any = []
+function Profile({ profile, address }) {
 
-  if (!data || !data.length) return null
-  const profile = data[data.length - 1]
-  if (!profile) return null
+  if (!profile && !address) return null
+
+  if (!profile && address) return (
+    <p className='p-10 text-sm text-muted-foreground'>{address}</p>
+  )
 
   return (
     <main className="px-10 py-14">
